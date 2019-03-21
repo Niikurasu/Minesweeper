@@ -147,8 +147,8 @@ void restartGame() {
 
 /*
   TODO:
- Font Size Bug
- Textures
+ Font Size Bug []
+ Textures [X]
  
  
  */
