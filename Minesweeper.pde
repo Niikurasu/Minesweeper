@@ -8,8 +8,9 @@ boolean lost;
 float startTime;
 float endTime;
 int mineAmount;
-
 int screenState; // 0 = startscreen, 1 = gamescreen, 2 = win screen, 3 = lose screen
+boolean losingScreen = false;
+
 
 void setup() {
 
@@ -45,12 +46,17 @@ void draw() {
     text("Time: " + str(endTime/1000-startTime/1000), time_x, time_y);
   } else if (screenState == 3) { // Lose Screen
     background(220);
-    textSize(width/21);
+    for(int i = 0; i < fieldSize; i++) {
+     for(int j = 0; j < fieldSize; j++) {
+      field[i][j].show();
+      }
+    }
+    textSize(width/19);
     textAlign(CENTER);
     int tx = width/2;
     int ty = height/10*4;
-    fill(200, 50, 50);
-    text("You Lost! Press r to start the game", tx, ty);
+    fill(250, 10, 10);
+    text("You Lost! Press r to restart the game", tx, ty);
   } else if (screenState == 1) { // Game Screen
     /*
    Check for Win
@@ -61,6 +67,7 @@ void draw() {
     }
     if (lost) {
       screenState = 3;
+      unhideAll();
     }
 
     /*
@@ -143,12 +150,11 @@ void restartGame() {
   }
 }
 
+void unhideAll() {
+ for(int i = 0; i < fieldSize; i++) {
+     for(int j = 0; j < fieldSize; j++) {
+      field[i][j].hidden = false;
+      }
+    } 
+}
 
-
-/*
-  TODO:
- Font Size Bug []
- Textures [X]
- 
- 
- */
