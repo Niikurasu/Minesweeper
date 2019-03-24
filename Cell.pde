@@ -25,10 +25,10 @@ class Cell {
     if (hidden==false) {
       if (mine) {
         //fill(250, 0, 0);
-        image(p_mine, x*(width/fieldSize), y*(height/fieldSize));
+        image(p_mine, x*(width/fieldSize), y*(height/fieldSize), width/fieldSize, height/fieldSize);
       } else {
         //fill(175, 175, 175);
-        image(p_empty, x*(width/fieldSize), y*(height/fieldSize));
+        image(p_empty, x*(width/fieldSize), y*(height/fieldSize), width/fieldSize, height/fieldSize);
       }
       fill(0);
       textAlign(CENTER);
@@ -82,9 +82,9 @@ class Cell {
     } else {
       if (flagged) {
         //fill(0, 0, 255);
-        image(p_flag, x*(width/fieldSize), y*(height/fieldSize));
+        image(p_flag, x*(width/fieldSize), y*(height/fieldSize), width/fieldSize, height/fieldSize);
       } else {
-        image(p_hidden, (x*(width/fieldSize)), y*(height/fieldSize));
+        image(p_hidden, (x*(width/fieldSize)), y*(height/fieldSize), width/fieldSize, height/fieldSize);
       }
     }
   }
